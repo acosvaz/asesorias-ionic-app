@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Asistencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+  <ion-list-header>Tomar asistencia</ion-list-header>
+  <ion-item>
+    <ion-label>Alumnos</ion-label>
+    <ion-select [(ngModel)]="form" [interfaceOptions]="customActionSheetOptions" multiple="true" interface="action-sheet">
+      <ion-select-option *ngFor="let asistencia of asistencias" [value]="{userid: asistencia.userid, nu_asesoria: asistencia.nu_asesoria}">{{asistencia.firstname+' '+asistencia.lastname}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<br><br>
+<ion-button expand="full" color="danger" (click)="onCreate()">Crear</ion-button>
+</ion-content>

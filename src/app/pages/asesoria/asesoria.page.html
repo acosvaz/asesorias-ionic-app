@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Crear asesoría</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+  <ion-list-header>*Crea una sesión de asesoría</ion-list-header>
+  <ion-item>
+    <ion-label position="floating">Competencia:</ion-label>
+    <ion-input type="text" name="competencia" [(ngModel)]="form.competencia"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Materia</ion-label>
+    <ion-select [(ngModel)]="form.nu_curso" [interfaceOptions]="customActionSheetOptions" interface="action-sheet">
+      <ion-select-option *ngFor="let grupo of grupos" [value]="grupo.id">{{grupo.nombre + ': ' + grupo.fullname}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Tipo de asesoría</ion-label>
+    <ion-select [(ngModel)]="form.nu_asesoria" interface="popover">
+      <ion-select-option *ngFor="let tipo of tipos" [value]="tipo.id">{{tipo.tipo}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<br><br>
+<ion-button expand="full" color="danger" (click)="onCreate()">Crear</ion-button>
+</ion-content>

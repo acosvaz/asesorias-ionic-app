@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Maestros</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label><b>Maestros:</b></ion-label>
+    </ion-item>
+    <ion-item *ngFor="let maestro of maestros" detail [routerLink]="['/', 'editar', maestro.id]">
+      <ion-label>{{maestro.firstname+' '+maestro.lastname}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

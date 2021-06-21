@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sesiones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label><b>Sesión:</b></ion-label>
+      <ion-label><b>Clave:</b></ion-label>
+    </ion-item>
+    <ion-item *ngFor="let sesion of sesiones" detail [routerLink]="['/', 'detalle', sesion.id, sesion.materia, sesion.grupo]">
+      <ion-label>{{sesion.competencia}}</ion-label>
+      <ion-label>{{sesion.shortname}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

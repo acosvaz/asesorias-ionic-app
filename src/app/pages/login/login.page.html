@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start" *ngIf="isLogged">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title text-center>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="!isLogged">
+    <img src="assets/login1.jpg" class="icon">
+    <br><br>
+    <ion-item>
+      <ion-label position="floating">Nombre de Usuario:</ion-label>
+      <ion-input type="text" name="username" [(ngModel)]="form.username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Contraseña:</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]="form.password"></ion-input>
+    </ion-item>
+    <br><br>
+    <ion-button expand="full" (click)="onLogin()" color="danger">Iniciar Sesión</ion-button>
+    <br>
+  </div>
+  
+  <div *ngIf="isLogged">
+    <img src="assets/login1.jpg" class="icon">
+    <br><br>
+    <ion-text text-center>
+      <h3>Bienvenido {{ nombreUser }}</h3>
+    </ion-text>
+    <br>
+
+    <ion-button expand="full" (click)="onLogout()" color="danger">Cerrar Sesión</ion-button>
+  </div>
+  <br>
+  <br>
+
+</ion-content>

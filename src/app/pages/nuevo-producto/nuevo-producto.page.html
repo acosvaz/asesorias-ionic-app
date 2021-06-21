@@ -1,0 +1,135 @@
+    <ion-header>
+      <ion-toolbar color="danger">
+        <ion-title>Informe</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+<ion-content id="contenedor" padding>
+	<br>
+  <br>
+  <br>
+  <br>
+  <br>
+    <p style = "text-align:center"><strong>BITÁCORA DE ASESORIA ACÁDEMICA</strong></p>
+    <ion-grid>
+  <ion-row>
+    <ion-col size="3" style = "border: solid 1px #ddd">
+      <div><strong>
+        Programa Educativo
+    </strong>
+      </div>
+    </ion-col>
+    <ion-col size="4" style = "border: solid 1px #ddd">
+      <div>
+        Ingenieria en Sistemas Computacionales
+      </div>
+    </ion-col>
+    <ion-col size="2" style = "border: solid 1px #ddd">
+      <div>
+      	<strong>
+        Ciclo Escolar
+    	</strong>
+      </div>
+    </ion-col>
+    <ion-col style = "border: solid 1px #ddd">
+      <div>
+        Agosto 2019 - Enero 2019
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+  	<ion-col size="3" style = "border: solid 1px #ddd">
+  	   <strong>
+         <div>Programa de Asesoria</div>
+       </strong>
+    </ion-col>
+    <ion-col *ngFor="let encabezado of encabezados" style = "border: solid 1px #ddd">
+    <div>{{encabezado.fullname}}</div>
+    </ion-col>
+  </ion-row>
+  <ion-row >
+    <ion-col size="3" style = "border: solid 1px #ddd">
+        <strong><div>Ejecutor del programa</div></strong>
+        </ion-col>
+        <ion-col *ngFor="let encabezado of encabezados" style = "border: solid 1px #ddd">
+        <div> {{encabezado.firstname+' '+encabezado.lastname}}</div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<p style = "text-align:center">
+  Tipo de Asesorias: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  P: Preventiva &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  R: Reprobacion 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   S: Solicitada
+</p>
+    <ion-grid text-center >
+  <ion-row style = "background-color: #800000; color: white">
+    <ion-col size="3" style = "border: solid 1px #000">
+      <strong><div>
+        Nombre del/la estudiante
+      </div></strong>
+    </ion-col>
+    <ion-col size="1" style = "border: solid 1px #000">
+      <strong><div>
+        Grupo
+      </div></strong>
+    </ion-col>
+    <ion-col size="3" style = "border: solid 1px #000">
+      <strong><div>
+        Competencia
+      </div></strong>
+    </ion-col>
+    <ion-col style = "border: solid 1px #000">
+      <strong><div>
+        Fecha
+      </div></strong>
+    </ion-col>
+    <ion-col size = "1" style = "border: solid 1px #000">
+      <strong><div>
+        Tipo de Asesoria
+      </div></strong>
+    </ion-col>
+    <ion-col size = "1" style = "border: solid 1px #000">
+      <strong><div>
+        Firma
+      </div></strong>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngFor="let pdf of pdfs">
+    <ion-col size="3" style = "border: solid 1px #000">
+      <div>
+        {{ pdf.firstname+' '+pdf.lastname }}
+      </div>
+    </ion-col>
+    <ion-col size="1" style = "border: solid 1px #000">
+      <div>
+        {{ pdf.nombre }}
+      </div>
+    </ion-col>
+    <ion-col size="3" style = "border: solid 1px #000">
+      <div>
+        {{ pdf.competencia }}
+      </div>
+    </ion-col>
+    <ion-col style = "border: solid 1px #000">
+      <div>
+        {{ pdf.fecha}}
+      </div>
+    </ion-col>
+    <ion-col size = "1" style = "border: solid 1px #000">
+      <div>
+        {{ pdf.shortname }}
+      </div>
+    </ion-col>
+    <ion-col size = "1" style = "border: solid 1px #000">
+      <div>
+      
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+
+<ion-button expand= "full" clolor="succes" (click)= "generarPDF()"> Exportar a PDF </ion-button>
+
